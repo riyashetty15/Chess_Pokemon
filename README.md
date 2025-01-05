@@ -1,26 +1,64 @@
-# Chess_Pokemon
-### Approach :- 
-The approach that we have used for this problem is to min-max algorithm where we can set the depth to which the tree should be implemented such that the motive is to optimise the values for our minmax as well as reduce the time taken for execution in each code. The min-max algorithm returns the best value for our alpha and beta values using alpha beta pruning.
+### Overview
+This project implements an AI-driven board game strategy using the Minimax Algorithm with Alpha-Beta Pruning. The approach is tailored to simulate the behavior of different game pieces—Pichu, Pikachu, and Raichu—inspired by chess-like movement and interaction rules. The goal is to efficiently determine optimal moves that maximize player advantage while minimizing opponent opportunities.
 
-### Execution  :-
-We have initialized the code by writing 3 functions. 1 for pichu, 1 for pichu and another for raichu. In pichu we are looking at the opponent players who can be attacked diagonally in the forward direction, One step at a time. The code reference was from an arranged pichus in which we had implemented to move the pichu in the diagonally forward direction. 
+### Approach
+The solution is based on the Minimax Algorithm combined with Alpha-Beta Pruning to optimize both game strategy and execution time. This technique ensures that:
 
-### Implementation :
-1) Here, the pichu acts as the bishop in the chess game. For implementing the pichu, we look at the available opponent pichu nodes which can be captured. 
-2) If there is a pichu of the opponent we jump over the pichu of the opponent and replace the opponent pichu with a “ . ” and move one step ahead. We are doing this by checking each next node in the diagonal direction and looking out for the opponent variables. 
-3) In the code we have defined the player and the opponent variables. 
+**Best Moves:** The algorithm evaluates all possible moves up to a specified depth in the decision tree to determine the optimal move.<br>
+**Pruning Unnecessary Paths:** Alpha-beta pruning eliminates irrelevant branches to the outcome, significantly reducing computational overhead.<br>
+**Dynamic Depth:** The depth of exploration can be tuned to balance performance and accuracy.<br>
 
-In Pikachu we have set the moves to move in a forward, left and right direction, where the Pikachu will decide which direction to move in depending on the pichus or pikachus of the opponent in the board. The pikachu can move one step or 2 step in the forward, right or left directions respectively.
+### Execution Details
+Game Pieces:
 
-### Implementation:
-1) In Pikachu, it can eliminate the pichu and the pikachu of the opponent. Since it can move like an elephant in the chess board game, we will check for the opponent nodes in the left, right and forward direction. 
-2) The pikachu can jump over a pichu or a pikachu of the opponent by moving 2 or 3 nodes in case if it finds an opponent. It will replace the opponent node with a “ . “ and move one step ahead.
+1. Pichu: <br>
+- Moves diagonally forward, similar to a chess bishop.
+- Captures opponent pieces by jumping over them.
+- Replaces the captured piece with an empty space (".") and moves to the next diagonal cell.
 
-A Raichu is created when a Pichu or Pikachu reaches the opposite side of the board and when this happens, the Pichu or Pikachu is removed from the board and substituted with a Raichu  In Raichu, which can move in the 8 directions that is in the upward, downward, right, left and in the 4 diagonal directions. The raichu can capture the pichu, pikachu and raichu of the opponent.
+2. Pikachu:
+- Moves one or two steps forward, left, or right, similar to a chess rook.
+- Captures opponent pieces (Pichu or Pikachu) by jumping over them and replacing them with an empty space.
 
-### Implementation:
-1) This was the toughest to implement as we have to look for all the pieces of the opponent in all the eight directions which I have defined in my code as North, south, east, west, northeast, northwest, southeast and southwest. 
-2) We are returning 2 parameters from each direction that is moves and kill_moves which will return the moves done by the player (thats us) and the number of the pieces of the opponent thats replaced by “ . “.
+3. Raichu:
+- Created when Pichu or Pikachu reaches the opposite side of the board.
+- Moves in all eight directions—north, south, east, west, and diagonals.
+- Captures opponent pieces in any of these directions.
+  
+### Key Functions:
 
-#### The minmax algorithm:
-The minmax algorithm in our case is considering a bestvalue, alpha and beta as some high negative number while checking if the node is a maximizing node and the is being assigned with the max value between the bestvalue and the value which we get by considering our node as the maximizing player. Similarly, we are doing while minimizing the node for the opponent.
+**Pichu Function:** Checks diagonally for opponent pieces, captures them, and advances the piece.<br><br>
+**Pikachu Function:** Identifies and captures opponent pieces in forward, left, or right directions.<br><br>
+**Raichu Function:** Evaluates all eight possible directions and computes both moves and captures.<br><br>
+Each function ensures valid moves are made while keeping track of captured pieces. <br>
+
+### Minimax Algorithm with Alpha-Beta Pruning:
+
+1. Starts by evaluating the current node as a maximizing or minimizing player.
+2. Computes the best value for each move using the formula:
+   - For maximizing nodes: best_value = max(best_value, calculated_value)
+   - For minimizing nodes: best_value = min(best_value, calculated_value)
+
+**Note: Alpha and beta values are updated to prune irrelevant paths. Incorporates "backtracking" to update the game board and simulate move outcomes.**
+<br>
+### Features
+
+1. Optimized Decision Making: Minimax ensures the best possible move by considering both player and opponent strategies.
+2. Adaptive Game Logic: Incorporates custom rules for movement and captures for Pichu, Pikachu, and Raichu.
+3. Efficient Execution: Alpha-beta pruning significantly reduces computational complexity.
+4. Dynamic Gameplay: The algorithm adapts to game states and updates moves accordingly.
+   
+### How It Works
+**Input:** A game board with player and opponent pieces.<br>
+**Processing:**
+1. Evaluate possible moves using Pichu, Pikachu, and Raichu rules.
+2. Use the Minimax Algorithm to explore potential outcomes.
+3. Prune unnecessary branches to speed up decision-making.<br>
+### Output:
+- Optimal move for the player.
+- Updated board state.
+- Number of opponent pieces captured.
+### Applications
+- Board game AI.
+- Optimization problems in gaming strategies.
+Teaching advanced AI concepts like Minimax and Alpha-Beta Pruning.
