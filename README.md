@@ -1,3 +1,5 @@
+# AI-Powered Minimax Strategy for Game Optimization
+
 ### Overview
 This project implements an AI-driven board game strategy using the Minimax Algorithm with Alpha-Beta Pruning. The approach is tailored to simulate the behavior of different game pieces—Pichu, Pikachu, and Raichu—inspired by chess-like movement and interaction rules. The goal is to efficiently determine optimal moves that maximize player advantage while minimizing opponent opportunities.
 
